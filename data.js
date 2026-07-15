@@ -64,8 +64,8 @@ export const PROFILES = {
       informacionRelevante: "No se registran movimientos financieros atípicos relacionados con su situación de insolvencia"
     },
     encontrado: {
-      VUR: { detalle: "Coincide: 1 Casa en Bogotá D.C. (FMI No. 10C-114765). Hallazgos adicionales: 1 Apartamento en Barranquilla (FMI No. 040-265908) NO declarado; 1 Apartamento en Barranquilla (FMI No. 040-356554) traspasado hace 2 meses", resultado: "inconsistencia_grave" },
-      RNAT: { detalle: "Coincide: Chevrolet Camaro 2022 (XUS-093). Hallazgo adicional: Toyota Corolla Modelo 2020 (HYB-477) transferido hace 3 meses", resultado: "inconsistencia_grave" },
+      VUR: { detalle: "Bien declarado verificado: 1 Casa en Bogotá D.C. (FMI No. 10C-114765). Hallazgos adicionales: 1 Apartamento en Barranquilla (FMI No. 040-265908) NO declarado; 1 Apartamento en Barranquilla (FMI No. 040-356554) traspasado hace 2 meses", resultado: "inconsistencia_grave" },
+      RNAT: { detalle: "Vehículo declarado verificado: Chevrolet Camaro 2022 (XUS-093). Hallazgo adicional: Toyota Corolla Modelo 2020 (HYB-477) transferido hace 3 meses", resultado: "inconsistencia_grave" },
       DIAN: { detalle: "Declaró renta sobre un patrimonio de $180.000.000 hace apenas 14 meses — incoherente con su estado actual", resultado: "inconsistencia_grave" },
       OPEN_FINANCE: { detalle: "Obligaciones bancarias reportadas ascienden a $79.658.000 (declaró $143.867.000)", resultado: "inconsistencia_grave" },
       RUES: { detalle: "Socio activo de la sociedad \"BLU EXPRESS S.A.S.\"", resultado: "inconsistencia_grave" },

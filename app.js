@@ -193,8 +193,7 @@ function runVerification() {
 }
 
 function resultLabel(result) {
-  if (result === "inconsistencia_grave") return "Inconsistencia grave";
-  if (result === "inconsistencia") return "Inconsistencia";
+  if (result === "inconsistencia_grave" || result === "inconsistencia") return "No coincide";
   return "Coincide";
 }
 
