@@ -206,7 +206,7 @@ function renderReport() {
       <div class="mobile-category"><span>${category}</span><small>${sourceName}</small></div>
       <div class="report-cell declared-cell" data-label="Lo que declaró"><div><span class="desktop-category">${category}</span><p>${displayValue(profile.declarado[declaredKey])}</p></div></div>
       <div class="report-cell finding" data-label="Lo que encontró el SITVPI"><p>${finding.detalle}</p></div>
-      <div class="report-cell result-cell" data-label="Resultado"><span class="result-badge ${finding.result}">${resultLabel(finding.result)}</span></div>
+      <div class="report-cell result-cell" data-label="Resultado"><span class="result-badge ${finding.resultado}">${resultLabel(finding.resultado)}</span></div>
     </article>`;
   }).join("");
   const count = profile.inconsistencias.length;
