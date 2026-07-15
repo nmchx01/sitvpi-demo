@@ -13,6 +13,15 @@ const declarationFields = [
   ["Información relevante", "informacionRelevante", "info"]
 ];
 
+const fieldIcons = {
+  income: `<svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M15 8.5c-.7-.7-1.7-1-3-1-1.7 0-3 .8-3 2s1 1.8 3 2.2 3 1 3 2.3-1.3 2.5-3 2.5c-1.4 0-2.6-.4-3.4-1.2M12 5.5v13"/></svg>`,
+  property: `<svg viewBox="0 0 24 24" focusable="false"><path d="M3 10.5 12 3l9 7.5M5.5 9v11h13V9M9.5 20v-6h5v6"/></svg>`,
+  vehicle: `<svg viewBox="0 0 24 24" focusable="false"><path d="m5 10 1.6-4h10.8l1.6 4M3.5 11.5h17v6h-17zM6.5 17.5v2M17.5 17.5v2M7 14.5h.01M17 14.5h.01"/></svg>`,
+  debt: `<svg viewBox="0 0 24 24" focusable="false"><path d="M4 6.5h14a2 2 0 0 1 2 2v9H4a2 2 0 0 1-2-2v-11M4 6.5a2 2 0 1 1 0-4h12v4M15 11h7v4h-7a2 2 0 1 1 0-4Z"/></svg>`,
+  business: `<svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V4h6v3M3 12h18M10 12v2h4v-2"/></svg>`,
+  info: `<svg viewBox="0 0 24 24" focusable="false"><path d="M6 2.5h8l4 4v15H6zM14 2.5v4h4M9 12l2 2 4-4M9 18h6"/></svg>`
+};
+
 const sourceMeta = {
   VUR: ["Bienes inmuebles", "bienesInmuebles", "VUR"],
   RNAT: ["Vehículos", "vehiculos", "RNAT"],
@@ -104,7 +113,7 @@ function renderDeclaration() {
   const { profile } = state;
   const cards = declarationFields.map(([label, key, icon]) => `
     <article class="declaration-card">
-      <div class="field-icon ${icon}" aria-hidden="true"></div>
+      <div class="field-icon ${icon}" aria-hidden="true">${fieldIcons[icon]}</div>
       <div><h3>${label}</h3><p>${displayValue(profile.declarado[key])}</p></div>
     </article>`).join("");
 
@@ -149,7 +158,6 @@ function renderVerification() {
         <h1 id="verification-title">Consultando fuentes de datos<span class="ellipsis" aria-hidden="true">…</span></h1>
         <p class="context-copy">Validando la declaración de <strong>${state.profile.nombre}</strong> en cinco sistemas.</p>
       </div>
-      <aside class="simulation-banner"><span aria-hidden="true">SIM</span><p>Recopilación simulada: no se está consultando ninguna entidad ni registro real.</p></aside>
       <div class="source-list">${cards}</div>
       <div class="progress-summary"><span id="progress-copy">0 de 5 fuentes consultadas</span><div class="progress-track"><span id="progress-bar"></span></div></div>
     </section>
@@ -197,7 +205,7 @@ function renderReport() {
     const [category, declaredKey, sourceName] = sourceMeta[source];
     return `<article class="report-row" style="--row:${index}" aria-label="${category}">
       <div class="mobile-category"><span>${category}</span><small>${sourceName}</small></div>
-      <div class="report-cell" data-label="Lo que declaró"><p>${displayValue(profile.declarado[declaredKey])}</p></div>
+      <div class="report-cell declared-cell" data-label="Lo que declaró"><div><span class="desktop-category">${category}</span><p>${displayValue(profile.declarado[declaredKey])}</p></div></div>
       <div class="report-cell finding" data-label="Lo que encontró el SITVPI"><p>${finding.detalle}</p></div>
       <div class="report-cell result-cell" data-label="Resultado"><span class="result-badge ${finding.result}">${resultLabel(finding.result)}</span></div>
     </article>`;
